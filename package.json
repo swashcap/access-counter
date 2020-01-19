@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/swashcap/access-counter/issues"
   },
-  "homepage": "https://github.com/swashcap/access-counter#readme"
+  "homepage": "https://github.com/swashcap/access-counter#readme",
+  "devDependencies": {
+    "ava": "^2.4.0"
+  }
 }
