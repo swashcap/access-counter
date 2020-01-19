@@ -98,7 +98,11 @@ test('reference access', t => {
 
 test('destructured access', t => {
   const [data, getAccess] = accessCounter(getData())
-  const { g: { h: { j } } } = data
+  const {
+    g: {
+      h: { j }
+    }
+  } = data
 
   t.deepEqual(getAccess(), {
     g: {
@@ -115,23 +119,13 @@ test('array iteration', t => {
   data.e.map(x => x)
 
   t.deepEqual(getAccess(), {
-    e: [
-      true,
-      false,
-      {},
-      []
-    ]
+    e: [true, false, {}, []]
   })
 
   data.e[3].join(' ')
 
   t.deepEqual(getAccess(), {
-    e: [
-      true,
-      false,
-      {},
-      [9, 8 ,7]
-    ]
+    e: [true, false, {}, [9, 8, 7]]
   })
 })
 
@@ -147,4 +141,3 @@ test('object iteration', t => {
     }
   })
 })
-

@@ -1,26 +1,20 @@
 // Accects `obj`, ideally a JSON-parsed data structure returned from a RESTful
 // API
-module.exports = function accessCounter (obj) {
+module.exports = function accessCounter(obj) {
   if (obj === null || typeof obj !== 'object') {
-    return [
-      obj,
-      function () {}
-    ]
+    return [obj, function() {}]
   }
 
   var ACCESS_REF = Symbol('ACCESS_REF')
   var handler = {
-    get: function (obj, prop, receiver) {
+    get: function(obj, prop, receiver) {
       var value = obj[prop]
 
-      if (
-        value !== null &&
-        typeof value === 'object'
-      ) {
+      if (value !== null && typeof value === 'object') {
         if (!obj[ACCESS_REF][prop]) {
-          obj[ACCESS_REF][prop] =
-            value[ACCESS_REF] =
-            Array.isArray(value) ? [] : {}
+          obj[ACCESS_REF][prop] = value[ACCESS_REF] = Array.isArray(value)
+            ? []
+            : {}
         }
 
         return new Proxy(value, handler)
@@ -32,7 +26,7 @@ module.exports = function accessCounter (obj) {
 
       return value
     },
-    set: function (obj, prop, value) {
+    set: function(obj, prop, value) {
       if (prop === ACCESS_REF) {
         obj[prop] = value
         return value
@@ -40,7 +34,7 @@ module.exports = function accessCounter (obj) {
 
       throw new Error('set not implemented')
     },
-    delete: function () {
+    delete: function() {
       throw new Error('delete not implemented')
     }
   }
@@ -56,7 +50,7 @@ module.exports = function accessCounter (obj) {
 
   return [
     proxy,
-    function () {
+    function() {
       return accessed
     }
   ]
