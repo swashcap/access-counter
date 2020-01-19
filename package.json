@@ -1,0 +1,19 @@
+{
+  "name": "access-counter",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swashcap/access-counter.git"
+  },
+  "author": "Cory Reed",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/swashcap/access-counter/issues"
+  },
+  "homepage": "https://github.com/swashcap/access-counter#readme"
+}
