@@ -1,5 +1,5 @@
-var test = require('ava')
-var accessCounter = require('.')
+import test from 'ava'
+import accessCounter from '.'
 
 const getData = () => ({
   a: 'a',

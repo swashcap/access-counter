@@ -2,9 +2,13 @@
   "name": "access-counter",
   "version": "0.0.1",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+  "source": "src/index.js",
   "scripts": {
-    "format": "prettier --write '*.js' 'src/**/*.js'",
+    "build": "microbundle build",
+    "format": "prettier --write '*.js' 'src/**/*.{js,ts}'",
     "test": "ava"
   },
   "repository": {
@@ -21,8 +25,10 @@
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "ava": "^2.4.0",
+    "esm": "^3.2.25",
     "husky": "^4.0.10",
     "lint-staged": "^9.5.0",
+    "microbundle": "^0.11.0",
     "prettier": "^1.19.1"
   }
 }

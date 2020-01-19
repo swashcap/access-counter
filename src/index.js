@@ -1,6 +1,6 @@
 // Accects `obj`, ideally a JSON-parsed data structure returned from a RESTful
 // API
-module.exports = function accessCounter(obj) {
+export default function accessCounter(obj) {
   if (obj === null || typeof obj !== 'object') {
     return [obj, function() {}]
   }
